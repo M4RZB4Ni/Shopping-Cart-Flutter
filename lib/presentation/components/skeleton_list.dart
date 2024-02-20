@@ -1,7 +1,7 @@
 // Import necessary packages and files.
-import 'package:communere/app/extentions/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shopping_flutter/app/extentions/extentions.dart';
 
 // Widget to display a skeleton list with loading animations.
 class SkeletonList extends StatelessWidget {

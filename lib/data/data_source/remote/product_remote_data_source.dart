@@ -1,14 +1,14 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:shopping_flutter/app/base/api_result.dart';
+import 'package:shopping_flutter/app/network/exception_handler.dart';
+import 'package:shopping_flutter/app/network/network_client.dart';
+import 'package:shopping_flutter/app/network/network_enums.dart';
+import 'package:shopping_flutter/data/models/product/product_result_dto.dart';
 import 'package:shopping_flutter/domain/data_source/product_data_source.dart';
-import 'package:shopping_flutter/domain/entities/product/product.dart';
+import 'package:shopping_flutter/domain/entities/photo/product.dart';
 
-import '../../../app/base/api_result.dart';
-import '../../../app/network/exception_handler.dart';
-import '../../../app/network/network_client.dart';
-import '../../../app/network/network_enums.dart';
-import '../../models/product/product_dto.dart';
+
 
 /// Implementation of the productsDataSource as Remote data source
 class ProductRemoteDataSource extends ProductDataSource {
@@ -18,23 +18,24 @@ class ProductRemoteDataSource extends ProductDataSource {
   ProductRemoteDataSource(this._networkClient);
 
   @override
-  Future<ApiResult<ProductResultDto>> getRecentproducts() async {
+  Future<ApiResult<Products>> getRecentProducts() async {
     try {
-      // Send a network request to get recent products using the Flickr API.
+      // Send a network request to get recent products using the API.
       final response = await _networkClient.sendRequest(
-          "${dotenv.env['SERVER']}?method=flickr.products.getRecent&api_key=${dotenv.env['API_KEY']}",
+          "${dotenv.env['SERVER']}prod/products",
           requestType: HttpRequestType.GET);
 
       // Check if the response status indicates success.
       if (response.status) {
         // Print debug information about the result.
-        debugPrint('result ${response.result}');
+        debugPrint('products ${response.result['products'].runtimeType} ');
 
         // Deserialize the response result into a productResultDto.
         final productResultDto = ProductResultDto.fromJson(response.result);
 
         // Return a successful API result with the converted products entity.
-        return ApiResult.success(data:productResultDto);
+        return ApiResult.success(data: Products.fromDto(productResultDto));
+
       }
 
       // Return a failed API result with the appropriate exception.
@@ -45,5 +46,6 @@ class ProductRemoteDataSource extends ProductDataSource {
       return ApiResult.failure(error: e);
     }
   }
+
 
 }

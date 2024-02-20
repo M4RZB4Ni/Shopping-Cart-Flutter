@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'product_dto.dart';
+part of 'product_result_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -9,26 +9,17 @@ part of 'product_dto.dart';
 _$ProductResultDtoImpl _$$ProductResultDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$ProductResultDtoImpl(
-      products: ProductsDto.fromJson(json['products'] as Map<String, dynamic>),
+      statusCode: json['statusCode'] as int,
+      products: (json['products'] as List<dynamic>)
+          .map((e) => ProductDto.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$ProductResultDtoImplToJson(
         _$ProductResultDtoImpl instance) =>
     <String, dynamic>{
+      'statusCode': instance.statusCode,
       'products': instance.products,
-    };
-
-_$ProductsDtoImpl _$$ProductsDtoImplFromJson(Map<String, dynamic> json) =>
-    _$ProductsDtoImpl(
-      productsList: (json['productsList'] as List<dynamic>?)
-              ?.map((e) => ProductDto.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const <ProductDto>[],
-    );
-
-Map<String, dynamic> _$$ProductsDtoImplToJson(_$ProductsDtoImpl instance) =>
-    <String, dynamic>{
-      'productsList': instance.productsList,
     };
 
 _$ProductDtoImpl _$$ProductDtoImplFromJson(Map<String, dynamic> json) =>

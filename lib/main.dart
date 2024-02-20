@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:shopping_flutter/app/di/main_binding.dart';
 import 'package:shopping_flutter/app/resources/app_text.dart';
 import 'package:shopping_flutter/app/router/pages.dart';
+import 'package:shopping_flutter/presentation/home/home_screen.dart';
 
 
 // Main function to run the Flutter application.

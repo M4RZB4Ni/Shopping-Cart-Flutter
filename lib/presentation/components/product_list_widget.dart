@@ -4,7 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:shopping_flutter/app/extentions/extentions.dart';
-import 'package:shopping_flutter/domain/entities/product/product.dart';
+import 'package:shopping_flutter/domain/entities/photo/product.dart';
 
 // Import the product entity and AppText resources.
 import '../../app/resources/app_text.dart';

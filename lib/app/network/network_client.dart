@@ -13,12 +13,12 @@ class NetworkClient {
     if (response.statusCode < 300 && response.statusCode >= 200) {
       return Response(
           status: true,
-          result: response.body,
+          result: jsonDecode(response.body),
           statusCode: response.statusCode);
     } else {
       return Response(
           status: false,
-          result: response.body,
+          result: jsonDecode(response.body),
           statusCode: response.statusCode);
     }
   }

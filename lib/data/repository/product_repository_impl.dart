@@ -1,9 +1,10 @@
 // Class implementing the productsRepository interface.
+import 'package:shopping_flutter/app/base/api_result.dart';
 import 'package:shopping_flutter/domain/data_source/product_data_source.dart';
+import 'package:shopping_flutter/domain/entities/photo/product.dart';
+import 'package:shopping_flutter/domain/repository/product_repository.dart';
 
-import '../../app/base/api_result.dart';
-import '../../domain/repository/product_repository.dart';
-import '../models/product/product_dto.dart';
+
 
 class ProductRepositoryImpl extends ProductRepository {
   final ProductDataSource _dataSource;
@@ -15,8 +16,8 @@ class ProductRepositoryImpl extends ProductRepository {
 
 
   @override
-  Future<ApiResult<ProductResultDto>> getRecentproducts() async {
+  Future<ApiResult<Products>> getRecentProducts() async {
     // Delegate the call to the data source to get recent products.
-    return await _dataSource.getRecentproducts();
+    return await _dataSource.getRecentProducts();
   }
 }

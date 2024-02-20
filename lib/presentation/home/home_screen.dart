@@ -31,7 +31,7 @@ class HomeScreen extends BaseView<HomeViewModel> {
           return LiquidPullToRefresh(
               height: 50,
               showChildOpacityTransition: false,
-              onRefresh: () => controller.getRecentproducts(),
+              onRefresh: () => controller.getRecentProducts(),
               child: ProductListWidget(products: controller.products.value));
         }
       },

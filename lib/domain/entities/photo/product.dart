@@ -1,7 +1,7 @@
 // Import necessary packages and files for Freezed annotations.
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../data/models/product/product_dto.dart';
+import '../../../data/models/product/product_result_dto.dart';
 
 // Import the DTO model for Product details.
 
@@ -22,9 +22,9 @@ class Products with _$Products {
       _$ProductsFromJson(json);
 
   // Factory method to convert a ProductsDto object into a Products object.
-  factory Products.fromDto(ProductsDto productsDto) {
+  factory Products.fromDto(ProductResultDto productsDto) {
     return Products(
-      productsList: productsDto.productsList
+      productsList: productsDto.products
           .map((productsDto) => Product.fromDto(productsDto))
           .toList(),
     );

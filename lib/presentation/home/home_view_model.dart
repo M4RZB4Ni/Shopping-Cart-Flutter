@@ -3,8 +3,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shopping_flutter/app/base/base_controller.dart';
-import 'package:shopping_flutter/domain/entities/product/product.dart';
-import 'package:shopping_flutter/domain/usecase/product/product_usecase.dart';
+import 'package:shopping_flutter/domain/entities/photo/product.dart';
+import 'package:shopping_flutter/domain/usecase/photo/product_usecase.dart';
 
 // View model for the HomeScreen, extending BaseController.
 class HomeViewModel extends BaseController {
@@ -36,12 +36,12 @@ class HomeViewModel extends BaseController {
   @override
   void onInit() async {
     super.onInit();
-    await getRecentproducts();
+    await getRecentProducts();
   }
 
   // Method to fetch recent products using the productUseCase.
-  Future<void> getRecentproducts() async {
-    final result = await _productUseCase.getRecentproducts();
+  Future<void> getRecentProducts() async {
+    final result = await _productUseCase.getRecentProducts();
     result.when(
       success: (data) {
         _isLoading.value = false;
@@ -54,14 +54,5 @@ class HomeViewModel extends BaseController {
   }
 
 
-  // Method to clear the search box and fetch recent products.
-  void clearSearchBox() {
-    FocusManager.instance.primaryFocus?.unfocus();
-    if (_searchController.text.isNotEmpty) {
-      _isLoading.value = true;
-      _searchController.clear();
-      getRecentproducts();
-    }
-  }
 
 }
