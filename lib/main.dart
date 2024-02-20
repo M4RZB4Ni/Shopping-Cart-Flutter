@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:shopping_flutter/app/di/main_binding.dart';
+import 'package:shopping_flutter/app/resources/app_text.dart';
+import 'package:shopping_flutter/app/router/pages.dart';
 
 
 // Main function to run the Flutter application.
