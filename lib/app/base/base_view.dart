@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,7 +7,6 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:shopping_flutter/app/base/base_controller.dart';
 import 'package:shopping_flutter/app/extentions/extentions.dart';
 
-import '../network/exception_handler.dart';
 import '../resources/app_colors.dart';
 import '../resources/app_spacing.dart';
 
@@ -27,7 +25,7 @@ abstract class BaseView<Controller extends BaseController>
   // You can Override it
   bool resizeToAvoidBottomInset() => true;
 
-  bool canPop(final BuildContext context) {
+  bool canPop() {
     return true;
   }
 
@@ -41,14 +39,11 @@ abstract class BaseView<Controller extends BaseController>
       },
       child: Obx(
         () => controller.pageState.when(
-          idle: () => annotatedRegion(context),
-          loading: () => _showLoading(),
-          data: (final data) => annotatedRegion(context),
-          lostConnection: (widget) => noInternet(),
-          error: (ExceptionHandler error) {
-            return "Error in Load Data".toWidget();
-          },
-        ),
+            idle: () => annotatedRegion(context),
+            loading: () => _showLoading(),
+            data: (final data) => annotatedRegion(context),
+            lostConnection: (widget) => noInternet(),
+            error: (error) => "$error in Load Data".toWidget()),
       ),
     );
   }
@@ -63,10 +58,8 @@ abstract class BaseView<Controller extends BaseController>
           children: [
             noInternetWidget(),
             const SizedBox(height: 16),
-            const Text(
-              "Oops! No Internet Connection",
-              style: TextStyle(fontSize: 16),
-            ),
+            "Oops! No Internet Connection"
+                .toWidget(textStyle: const TextStyle(fontSize: 16))
           ],
         ));
   }
@@ -81,7 +74,7 @@ abstract class BaseView<Controller extends BaseController>
       );
 
   Widget pageScaffold(final BuildContext context) => PopScope(
-        canPop: false,
+        canPop: canPop(),
         child: Scaffold(
           //sets ios status bar color
           backgroundColor: pageBackgroundColor(),

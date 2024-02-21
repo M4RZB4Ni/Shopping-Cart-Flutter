@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
@@ -18,7 +17,6 @@ class HomeScreen extends BaseView<HomeViewModel> {
   // Constructor for HomeScreen.
   HomeScreen({super.key});
 
-
   // Override the body method to define the main content of the screen.
   @override
   Widget body(BuildContext context) {
@@ -32,7 +30,10 @@ class HomeScreen extends BaseView<HomeViewModel> {
               height: 50,
               showChildOpacityTransition: false,
               onRefresh: () => controller.getRecentProducts(),
-              child: ProductListWidget(products: controller.products.value));
+              child: ProductListWidget(
+                products: controller.products.value,
+                onAddTap: (id) => controller.updateEntity(id: id),
+              ));
         }
       },
     );
@@ -48,5 +49,14 @@ class HomeScreen extends BaseView<HomeViewModel> {
   @override
   Color pageBackgroundColor() {
     return AppColors.surface;
+  }
+
+  @override
+  Widget? floatingActionButton() {
+    return Obx(() => FloatingActionButton.extended(
+          onPressed: () => controller.goToNextCheckoutScreen(),
+          label: controller.cart.length.toString().toWidget(),
+          isExtended: controller.cart.isNotEmpty ? true : false,
+        ));
   }
 }

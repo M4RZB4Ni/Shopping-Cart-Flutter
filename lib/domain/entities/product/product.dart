@@ -10,11 +10,11 @@ part 'product.freezed.dart';
 part 'product.g.dart';
 
 // Freezed annotations to create immutable data classes for Products and Product.
-@freezed
+@unfreezed
 class Products with _$Products {
   // Factory constructor for Products data class.
-  const factory Products({
-    required final List<Product> productsList, // List of Product objects.
+  factory Products({
+    required List<Product> productsList, // List of Product objects.
   }) = _Products;
 
   // Factory method to deserialize a JSON map into a Products object.

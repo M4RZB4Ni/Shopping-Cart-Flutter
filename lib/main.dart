@@ -7,7 +7,6 @@ import 'package:shopping_flutter/app/resources/app_text.dart';
 import 'package:shopping_flutter/app/router/pages.dart';
 import 'package:shopping_flutter/presentation/home/home_screen.dart';
 
-
 // Main function to run the Flutter application.
 void main() async {
   // Ensure that Flutter bindings are initialized.
@@ -39,13 +38,13 @@ class MyApp extends StatelessWidget {
           locale: Get.locale, // Set the locale for localization.
           title: AppText.appName, // Set the application title.
           initialBinding:
-          MainBinding(), // Use MainBinding for initial setup and dependency injection.
+              MainBinding(), // Use MainBinding for initial setup and dependency injection.
           debugShowCheckedModeBanner:
-          true, // Show the debug banner in checked mode.
+              true, // Show the debug banner in checked mode.
           initialRoute:
-          HomeScreen.url, // Set the initial route to the HomeScreen.
+              HomeScreen.url, // Set the initial route to the HomeScreen.
           getPages:
-          AppPages.pages, // Define the application's pages using AppPages.
+              AppPages.pages, // Define the application's pages using AppPages.
         );
       },
     );

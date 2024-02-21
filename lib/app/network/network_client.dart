@@ -1,13 +1,12 @@
+import 'dart:convert';
 
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 import 'package:shopping_flutter/app/network/network_enums.dart';
 import 'package:shopping_flutter/app/network/response.dart';
-import 'dart:convert';
 
 // Class for handling network requests.
 class NetworkClient {
-
   // Private method to handle the HTTP response based on the specified responseType.
   Response _responseHandler(http.Response response) {
     if (response.statusCode < 300 && response.statusCode >= 200) {
@@ -36,7 +35,7 @@ class NetworkClient {
       'Content-Type': 'application/json',
       'Connection': 'keep-alive',
       'platform': 'Mobile',
-      'x-api-key': dotenv.env['API_KEY']??'',
+      'x-api-key': dotenv.env['API_KEY'] ?? '',
     };
 
     // Update headers if provided.

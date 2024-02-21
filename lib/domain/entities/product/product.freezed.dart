@@ -21,6 +21,7 @@ Products _$ProductsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Products {
   List<Product> get productsList => throw _privateConstructorUsedError;
+  set productsList(List<Product> value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -86,7 +87,7 @@ class __$$ProductsImplCopyWithImpl<$Res>
   }) {
     return _then(_$ProductsImpl(
       productsList: null == productsList
-          ? _value._productsList
+          ? _value.productsList
           : productsList // ignore: cast_nullable_to_non_nullable
               as List<Product>,
     ));
@@ -96,38 +97,18 @@ class __$$ProductsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ProductsImpl implements _Products {
-  const _$ProductsImpl({required final List<Product> productsList})
-      : _productsList = productsList;
+  _$ProductsImpl({required this.productsList});
 
   factory _$ProductsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProductsImplFromJson(json);
 
-  final List<Product> _productsList;
   @override
-  List<Product> get productsList {
-    if (_productsList is EqualUnmodifiableListView) return _productsList;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_productsList);
-  }
+  List<Product> productsList;
 
   @override
   String toString() {
     return 'Products(productsList: $productsList)';
   }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ProductsImpl &&
-            const DeepCollectionEquality()
-                .equals(other._productsList, _productsList));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_productsList));
 
   @JsonKey(ignore: true)
   @override
@@ -144,14 +125,14 @@ class _$ProductsImpl implements _Products {
 }
 
 abstract class _Products implements Products {
-  const factory _Products({required final List<Product> productsList}) =
-      _$ProductsImpl;
+  factory _Products({required List<Product> productsList}) = _$ProductsImpl;
 
   factory _Products.fromJson(Map<String, dynamic> json) =
       _$ProductsImpl.fromJson;
 
   @override
   List<Product> get productsList;
+  set productsList(List<Product> value);
   @override
   @JsonKey(ignore: true)
   _$$ProductsImplCopyWith<_$ProductsImpl> get copyWith =>

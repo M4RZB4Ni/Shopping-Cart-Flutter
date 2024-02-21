@@ -6,5 +6,17 @@ class AppText {
   static const search = "Search...";
 
   // Static constant for the Application's Name.
-  static const appName = "Flicker Images";
+  static const appName = "Shopping Example";
+
+  static const product = "Product";
+
+  static const notAvailable = "Product is not available";
+
+  static const added = "Added to The Cart";
+
+  static const addedAgain = "Added to The Cart Again";
+
+  static const checkOutPageTitle = "Checkout Page";
+  static const items = "Items:";
+  static const totalPrice = "Total Price";
 }
