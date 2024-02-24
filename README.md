@@ -1,7 +1,7 @@
-# The Simple Flicker App - Flutter
+# The Simple Shopping App - Flutter
 
 ## Overview
-This is a Flutter project developed as a technical test by **Hamlet**. The project focuses on **Simple list and basket mechanism**.
+This is a Flutter project developed as a technical test by **Hamid (Hamlet) Marzbani**. The project focuses on **Simple list and basket mechanism**.
 
 ## Table of Contents
 - [Architecture](#architecture)
@@ -70,11 +70,3 @@ The Project is Based on MVVM and Clean-Architecture with consideration of SOLID 
 
    ```bash
    flutter build apk
-
-
-
-
-
-
-
-
